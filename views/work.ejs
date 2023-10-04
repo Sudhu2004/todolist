@@ -1,0 +1,18 @@
+<%- include("header.ejs") %>
+<link rel="stylesheet" type="text/css" href="/styles/style.css">
+<center>
+    <h1>
+        Work you should do
+    </h1>
+    <% if (locals.todotext) { %>
+        <ul>
+            <% locals.todotext.forEach((element, index) => { %>
+                <li>
+                    <%= index + 1 %>. <%= element %>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+</center>
+
+<%- include("footer.ejs") %>

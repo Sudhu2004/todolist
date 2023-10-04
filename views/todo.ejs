@@ -1,0 +1,30 @@
+<%- include("header.ejs") %>
+<link rel="stylesheet" type="text/css" href="/styles/style.css">
+
+<center>
+    <h1>
+        Enter your to-do work over here
+    </h1>
+    <form action="/todoinput" method="POST">
+        <input type="text" name="todotext" placeholder="Input your text here" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <% if (locals.existing !== undefined) { %>
+        <h1>Work already exists at position <%= locals.existing + 1 %></h1>
+    <% } %>
+
+    <% if (locals.todotext) { %>
+        <ul>
+            <% locals.todotext.forEach((element, index) => { %>
+                <li>
+                    <%= index + 1 %>. <%= element %>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+
+    
+</center>
+
+<%- include("footer.ejs") %>
